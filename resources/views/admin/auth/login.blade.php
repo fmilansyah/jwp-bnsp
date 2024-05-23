@@ -38,7 +38,7 @@
             <div class="card card-md">
                 <div class="card-body">
                     <h2 class="h2 text-center mb-4">Masuk Ke Sistem Admin</h2>
-                    <form action="{{ route('login') }}" method="POST">
+                    <form action="{{ route('login-process') }}" method="POST">
                         @csrf
                         @method('POST')
                         <div class="mb-3">

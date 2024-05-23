@@ -17,4 +17,14 @@ class Registration extends Model
         'doctor_id',
         'date'
     ];
+
+    public function polyclinic()
+    {
+        return $this->belongsTo(Polyclinic::class, 'polyclinic_id', 'id');
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class, 'doctor_id', 'id');
+    }
 }
