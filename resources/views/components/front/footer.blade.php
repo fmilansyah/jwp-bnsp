@@ -26,7 +26,7 @@
                     <ul class="list-unstyled footer-widget__info">
                         <li>
                             <span class="footer-widget__info__icon"><i class="icon-paper-plane"></i></span>
-                            <a href="mailto:info@rssehatbersama.com">info@rssehatbersama.com</a>
+                            <a href="mailto:info@rssehatbersama.site">info@rssehatbersama.site</a>
                         </li>
                         <li>
                             <span class="footer-widget__info__icon"><i class="icon-telephone"></i></span>

@@ -135,14 +135,19 @@
         name: {
           required: true
         },
-        email: {
-          required: true,
-          email: true
-        },
-        message: {
+        phone: {
           required: true
         },
-        subject: {
+        address: {
+          required: true
+        },
+        polyclinic_id: {
+          required: true
+        },
+        doctor_id: {
+          required: true
+        },
+        date: {
           required: true
         }
       },
@@ -152,9 +157,8 @@
           $(form).attr("action"),
           $(form).serialize(),
           function (response) {
-            $(form).parent().find(".result").append(response);
+            alert(response.message);
             $(form).find('input[type="text"]').val("");
-            $(form).find('input[type="email"]').val("");
             $(form).find("textarea").val("");
           }
         );

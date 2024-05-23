@@ -1,4 +1,4 @@
-<section class="appointment-one  section-space">
+<section id="registration" class="appointment-one  section-space">
     <div class="container">
         <div class="row gutter-y-60 align-items-center">
             <div class="col-lg-6 wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="00ms">
@@ -38,40 +38,38 @@
             </div>
             <div class="col-lg-6">
                 <!-- TO DO -->
-                <form action="" class="appointment-one__form contact-form-validated form-one wow fadeInRight" data-wow-duration="1500ms">
+                <form action="{{ route('store.registration') }}" method="POST" class="appointment-one__form contact-form-validated form-one wow fadeInRight" data-wow-duration="1500ms">
+                    @csrf
+                    @method('POST')
                     <div class="appointment-one__form__bg" style="background-image: url(assets/images/appointment/appointment-form-bg-1-2.jpg);"></div>
                     <div class="form-one__group">
                         <div class="form-one__control--full">
-                            <input type="text" name="name" placeholder="Nama Lengkap">
+                            <input type="text" name="name" placeholder="Nama Lengkap" required="">
                         </div>
                         <div class="form-one__control--full">
-                            <input type="text" name="phone" placeholder="No. Telepon/WhatsApp">
+                            <input type="text" name="phone" placeholder="No. Telepon/WhatsApp" required="">
                         </div>
                         <div class="form-one__control form-one__control--full">
-                            <textarea name="address" placeholder="Alamat sesuai KTP"></textarea>
+                            <textarea name="address" placeholder="Alamat sesuai KTP" required=""></textarea>
                         </div>
                         <div class="form-one__control form-one__control--full">
-                            <select class="selectpicker" aria-label="Select Your Service">
-                                <option selected>Poliklinik</option>
-                                <option value="1">Physiotherapy</option>
-                                <option value="2">Massage Therapy</option>
-                                <option value="3">Chiroptratic Therapy</option>
-                                <option value="4">Clinical Pilates</option>
-                                <option value="5">laser therapy</option>
+                            <select name="polyclinic_id" required="" class="selectpicker" aria-label="Select Your Service">
+                                <option value="" selected>Poliklinik</option>
+                                @foreach($polyclinics as $polyclinic)
+                                    <option value="{{ $polyclinic->id }}">{{ $polyclinic->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-one__control form-one__control--full">
-                            <select class="selectpicker" aria-label="Select Your Service">
-                                <option selected>Dokter</option>
-                                <option value="1">Physiotherapy</option>
-                                <option value="2">Massage Therapy</option>
-                                <option value="3">Chiroptratic Therapy</option>
-                                <option value="4">Clinical Pilates</option>
-                                <option value="5">laser therapy</option>
+                            <select name="doctor_id" required="" class="selectpicker" aria-label="Select Your Service">
+                                <option value="" selected>Dokter</option>
+                                @foreach($doctors as $doctor)
+                                    <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-one__control form-one__control--full appointment-one__form__date">
-                            <input type="text" name="date" placeholder="Pilih Tanggal" id="datepicker" class="sifoxen-datepicker">
+                            <input type="text" name="date" placeholder="Pilih Tanggal" id="datepicker" class="sifoxen-datepicker" required="">
                             <span class="appointment-one__form__date__arrow">
                                 <i class="fas fa-angle-down"></i>
                             </span>
